@@ -1,10 +1,35 @@
+// Libraries
+@import "~react-vis/dist/style";
+
 @import './sass/colors';
+@import './sass/typography';
 
 html,
 body {
+    @include fontsize($fontsize-normal);
+
     background: $color-background;
     color: $color-text;
+    font-family: $fontstack-body;
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: $fontweight-bold;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    @include fontsize($fontsize-xl);
+}
+
+h2 {
+    @include fontsize($fontsize-large);
+}
+
+h3, h4, h5 {
+    @include fontsize($fontsize-normal);
 }

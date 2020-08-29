@@ -1,0 +1,12 @@
+
+.County {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.5em;
+    margin: 1em;
+    padding: 1em;
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+    }
+}
