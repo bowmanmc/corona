@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     FlexibleWidthXYPlot,
-    Hint,
-    HorizontalGridLines,
-    VerticalGridLines,
-    XYPlot,
-    XAxis,
-    YAxis,
     VerticalBarSeries,
 } from 'react-vis';
 import moment from 'moment';

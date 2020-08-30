@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select'
 
-import Constants from './Constants';
-
 import './AddButton.scss';
 
 export default ({ data, onAdd }) => {
