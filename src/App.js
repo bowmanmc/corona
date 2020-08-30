@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import About from './About';
 import AddButton from './AddButton';
 import Constants from './Constants';
 import County from './County';
@@ -61,6 +62,7 @@ function App() {
                 return <County key={f} data={data} fips={f} onClose={closeCounty} />;
             })}
             <AddButton data={data?.selectData} onAdd={addCounty} />
+            <About />
         </div>
     );
 }

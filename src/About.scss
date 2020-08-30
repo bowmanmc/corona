@@ -1,0 +1,28 @@
+@import './sass/colors';
+@import './sass/devices';
+@import './sass/typography';
+
+.About {
+    @include fontsize($fontsize-small);
+    font-weight: $fontweight-light;
+    margin: 2em 1em;
+
+
+    h2 {
+        @include fontsize($fontsize-normal);
+        font-weight: $fontweight-light;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    li {
+        margin-bottom: 0.5em;
+    }
+
+    a {
+        color: #9cf;
+        text-decoration: none;
+    }
+}
