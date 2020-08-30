@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import AddButton from './AddButton';
+import Constants from './Constants';
 import County from './County';
 
 import './App.scss';
@@ -19,7 +20,7 @@ function App() {
             for (let i = 0; i < geoms.length; i++) {
                 counties[geoms[i].id] = geoms[i].properties;
             }
-            console.log(JSON.stringify(counties['39113']));
+            // console.log(JSON.stringify(counties['39113']));
 
             setData({
                 counties,
@@ -31,9 +32,12 @@ function App() {
         fetchData();
     }, []);
 
+    const fips = JSON.parse(localStorage.getItem(Constants.KEY_COUNTIES)) || [];
     return (
         <div className="App">
-            {/* <County data={data} fips={'39113'} /> */}
+            {fips.map(f => {
+                return <County key={f} data={data} fips={f} />;
+            })}
             <AddButton data={data?.selectData} />
         </div>
     );
