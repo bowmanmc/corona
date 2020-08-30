@@ -1,0 +1,59 @@
+defaults: &defaults
+    working_directory: ~/repo
+
+version: 2
+
+jobs:
+    build:
+        <<: *defaults
+        docker:
+        - image: circleci/node:latest
+        steps:
+        - checkout
+        - restore_cache:
+              keys:
+              - nm-{{ checksum "package.json" }}
+        - run:
+              name: NPM Install
+              command: npm install
+        - save_cache:
+              key: nm-{{ checksum "package.json" }}
+              paths:
+              - node_modules
+        - run:
+              name: Process Data
+              command: npm run process
+        - run:
+              name: NPM Build
+              command: npm run build
+        - persist_to_workspace:
+              root: ./
+              paths:
+              - public
+    deploy:
+        <<: *defaults
+        docker:
+        - image: circleci/python:3.6.3
+        steps:
+        - attach_workspace:
+              at: ./
+        - run:
+              name: Install AWS CLI
+              command: pip install awscli --upgrade --user
+        - run:
+              name: Upload to s3
+              command: ~/.local/bin/aws s3 sync ./public s3://$S3_BUCKET_NAME/ --delete --acl public-read
+        - run:
+              name: Invalidate Cloudfront Cache
+              command: ~/.local/bin/aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths "/*"
+workflows:
+    version: 2
+    build-deploy:
+        jobs:
+        - build
+        - deploy:
+              requires:
+              - build
+              filters:
+                  branches:
+                      only: master
