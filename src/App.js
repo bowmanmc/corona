@@ -8,6 +8,12 @@ import './App.scss';
 
 function App() {
     const [data, setData] = useState({});
+    const [fips, setFips] = useState([]);
+
+    useEffect(() => {
+        const list = JSON.parse(localStorage.getItem(Constants.KEY_COUNTIES)) || [];
+        setFips(list);
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,13 +38,29 @@ function App() {
         fetchData();
     }, []);
 
-    const fips = JSON.parse(localStorage.getItem(Constants.KEY_COUNTIES)) || [];
+    const addCounty = (countyCode) => {
+        if (fips.indexOf(countyCode) < 0) {
+            fips.push(countyCode);
+        }
+        setFips([...fips]);
+        localStorage.setItem(Constants.KEY_COUNTIES, JSON.stringify(fips));
+    };
+
+    const closeCounty = (countyCode) => {
+        const idx = fips.indexOf(countyCode);
+        if (idx > -1) {
+            fips.splice(idx, 1);
+        }
+        setFips([...fips]);
+        localStorage.setItem(Constants.KEY_COUNTIES, JSON.stringify(fips));
+    }
+
     return (
         <div className="App">
             {fips.map(f => {
-                return <County key={f} data={data} fips={f} />;
+                return <County key={f} data={data} fips={f} onClose={closeCounty} />;
             })}
-            <AddButton data={data?.selectData} />
+            <AddButton data={data?.selectData} onAdd={addCounty} />
         </div>
     );
 }

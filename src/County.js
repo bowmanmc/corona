@@ -3,10 +3,11 @@ import moment from 'moment';
 
 import Card from './Card';
 import Chart from './Chart';
+import Constants from './Constants';
 
 import './County.scss';
 
-export default ({ data, fips }) => {
+export default ({ data, fips, onClose }) => {
 
     const county = data?.counties?.[fips];
     const counts = data?.counts?.[fips];
@@ -33,7 +34,13 @@ export default ({ data, fips }) => {
 
     return (
         <div className="County">
-            <h2>{county?.name} County, {county?.state}</h2>
+            <div className="County__header">
+                <h2>{county?.name} County, {county?.state}</h2>
+                <button className="County__closebtn" onClick={() => {
+                    onClose(fips);
+                }}>x</button>
+            </div>
+
             <Chart data={data} fips={fips} />
 
             <div className="County__row">

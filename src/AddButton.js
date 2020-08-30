@@ -5,26 +5,17 @@ import Constants from './Constants';
 
 import './AddButton.scss';
 
-export default ({ data }) => {
+export default ({ data, onAdd }) => {
 
     if (!data) {
         return null;
     }
+
     const [selectedState, setSelectedState] = useState(null);
     const [selectedCounty, setSelectedCounty] = useState(null);
 
     const addCounty = () => {
-        console.log('Adding County: ' + selectedCounty.value);
-        let counties = JSON.parse(localStorage.getItem(Constants.KEY_COUNTIES));
-        if (!counties) {
-            counties = [];
-        }
-
-        if (counties.indexOf(selectedCounty.value) < 0) {
-            counties.push(selectedCounty.value);
-        }
-
-        localStorage.setItem(Constants.KEY_COUNTIES, JSON.stringify(counties));
+        onAdd(selectedCounty.value);
         setSelectedCounty(null);
         setSelectedState(null);
     };
