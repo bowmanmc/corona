@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import AddButton from './AddButton';
 import County from './County';
 
 import './App.scss';
@@ -11,6 +12,7 @@ function App() {
         const fetchData = async () => {
             const topo = await (await fetch('/data/counties.topo.json')).json();
             const counts = await (await fetch('/data/nyt-counts.json')).json();
+            const selectData = await (await fetch('/data/county-select-data.json')).json();
 
             const counties = {};
             let geoms = topo.objects.counties.geometries;
@@ -22,6 +24,7 @@ function App() {
             setData({
                 counties,
                 counts,
+                selectData,
             });
         };
 
@@ -30,7 +33,8 @@ function App() {
 
     return (
         <div className="App">
-            <County data={data} fips={'39113'} />
+            {/* <County data={data} fips={'39113'} /> */}
+            <AddButton data={data?.selectData} />
         </div>
     );
 }

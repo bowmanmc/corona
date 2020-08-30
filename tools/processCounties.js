@@ -44,6 +44,7 @@ async function process() {
     // map/shape data
     const counties = topodata.objects.counties.geometries
     const neighbors = topojson.neighbors(topodata.objects.counties.geometries) // used for county adjacency array property
+    const countySelect = {};
 
     // Loop through each county
     for (let i = 0; i < counties.length; i++) {
@@ -57,31 +58,39 @@ async function process() {
         counties[i].properties.adjacent = adjacent
         counties[i].properties.maskusage = maskdata[counties[i].id]
         Object.assign(counties[i].properties, popdata[counties[i].id])
+
+        // Add to countySelect
+        if (!countySelect[counties[i].properties.state]) {
+            countySelect[counties[i].properties.state] = [];
+        }
+        countySelect[counties[i].properties.state].push({
+            label: counties[i].properties.name,
+            value: counties[i].id,
+        });
+    }
+
+    // sort the counties in countySelect
+    const states = Object.keys(countySelect);
+    for (let i = 0; i < states.length; i++) {
+        const state = states[i];
+        countySelect[state] = countySelect[state].sort((a, b) => {
+            if (a.label < b.label) {
+                return -1;
+            }
+            if (a.label > b.label) {
+                return 1;
+            }
+            return 0;
+        });
     }
 
     // Spot check montogomery county
+    console.log(JSON.stringify(countySelect['Ohio']));
     console.log(counties[2126])
-    /*
-        { type: 'Polygon',
-        arcs: [ [ -2883, 8463, 8464, -1697, -1906, -8256, 8465 ] ],
-        id: '39113',
-        properties:
-        { name: 'Montgomery',
-            adjacent:
-            [ '39057', '39165', '39037', '39017', '39135', '39023', '39109' ],
-            maskusage:
-            { never: 0.041,
-                rarely: 0.065,
-                sometimes: 0.065,
-                frequently: 0.222,
-                always: 0.607 },
-            state: 'Ohio',
-            pop2010: 535153,
-            est2019: 531687 } }
-     */
 
     // Write out modified file
-    fs.writeFileSync('public/data/counties.topo.json', JSON.stringify(topodata))
+    fs.writeFileSync('public/data/counties.topo.json', JSON.stringify(topodata));
+    fs.writeFileSync('public/data/county-select-data.json', JSON.stringify(countySelect));
 }
 
 process()
