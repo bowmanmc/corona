@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+$roboto: 'Roboto', sans-serif;
 
-$nunito: 'Nunito', sans-serif;
+$fontstack-heading: $roboto;
+$fontstack-body: $roboto;
 
-$fontstack-heading: $nunito;
-$fontstack-body: $nunito;
-
-$fontweight-light: 200;
+$fontweight-light: 300;
 $fontweight-normal: 400;
 $fontweight-bold: 900;
 

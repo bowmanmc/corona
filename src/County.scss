@@ -1,3 +1,7 @@
+@import './sass/colors';
+@import './sass/devices';
+@import './sass/typography';
+
 
 .County {
     background: rgba(255, 255, 255, 0.03);
@@ -5,8 +9,29 @@
     margin: 1em;
     padding: 1em;
 
-    &__main {
+    h2 {
+        color: #ccc;
+    }
+
+    .Chart {
+        margin-bottom: 0.5em;
+    }
+
+    &__row {
         display: flex;
         flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        @include desktop {
+            flex-direction: row;
+        }
+
+        .Card {
+            flex: 1;
+            margin: 0.25em;
+        }
     }
 }

@@ -1,0 +1,30 @@
+@import './sass/colors';
+@import './sass/devices';
+@import './sass/typography';
+
+
+.Card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.5em;
+    padding: 1em;
+
+    &__number {
+        @include fontsize($fontsize-large);
+
+        color: #fff;
+        display: block;
+        font-weight: $fontweight-bold;
+    }
+
+    &__context, &__description {
+        @include fontsize($fontsize-small);
+
+        color: #aaa;
+        display: block;
+        font-weight: $fontweight-light;
+    }
+
+    &__context {
+        font-weight: $fontweight-bold;
+    }
+}
