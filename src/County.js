@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import Card from './Card';
 import Chart from './Chart';
-import Constants from './Constants';
+import MaskNumber from './MaskNumber';
 
 import './County.scss';
 
@@ -38,7 +38,7 @@ export default ({ data, fips, onClose }) => {
                 <h2>{county?.name} County, {county?.state}</h2>
                 <button className="County__closebtn" onClick={() => {
                     onClose(fips);
-                }}>x</button>
+                }}>x close</button>
             </div>
 
             <Chart data={data} fips={fips} />
@@ -49,7 +49,7 @@ export default ({ data, fips, onClose }) => {
                     number={`${newCases} new cases, ${newDeaths} deaths`}
                 />
                 <Card
-                    description={"Last Seven Days"}
+                    description={"In the Last Seven Days"}
                     number={`${counts?.sevenCases?.toLocaleString()} new cases, ${counts?.sevenDeaths?.toLocaleString()} deaths`}
                 />
             </div>
@@ -77,6 +77,18 @@ export default ({ data, fips, onClose }) => {
                     number={`${counts?.totalDeaths?.toLocaleString()} people`}
                 />
             </div>
+
+            <div className="County__masks">
+                <div className="County__maskstitle">Mask Usage</div>
+                <div className="County__maskscounts">
+                    <MaskNumber label={"Never"} rate={county?.maskusage.never} />
+                    <MaskNumber label={"Rarely"} rate={county?.maskusage.rarely} />
+                    <MaskNumber label={"Sometimes"} rate={county?.maskusage.sometimes} />
+                    <MaskNumber label={"Frequently"} rate={county?.maskusage.frequently} />
+                    <MaskNumber label={"Always"} rate={county?.maskusage.always} />
+                </div>
+            </div>
+
         </div>
     );
 };

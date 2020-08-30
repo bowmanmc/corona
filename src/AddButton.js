@@ -35,6 +35,7 @@ export default ({ data, onAdd }) => {
                 <Select
                     className="Select"
                     classNamePrefix="Select"
+                    placeholder="Select State..."
                     value={selectedState}
                     options={stateSelectData}
                     onChange={(newVal) => {
@@ -47,6 +48,7 @@ export default ({ data, onAdd }) => {
                     <Select
                         className="Select"
                         classNamePrefix="Select"
+                        placeholder="Select County..."
                         value={selectedCounty}
                         options={data[selectedState.value]}
                         onChange={newVal => {

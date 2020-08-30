@@ -1,0 +1,27 @@
+@import './sass/colors';
+@import './sass/devices';
+@import './sass/typography';
+
+.MaskNumber {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.5em;
+    margin: 0.25em;
+    padding: 1em;
+
+    span {
+        display: block;
+        text-align: center;
+    }
+
+    &__rate {
+        @include fontsize($fontsize-large);
+        font-weight: $fontweight-bold;
+    }
+
+    &__label {
+        @include fontsize($fontsize-small);
+
+        color: #ccc;
+        font-weight: $fontweight-light;
+    }
+}
