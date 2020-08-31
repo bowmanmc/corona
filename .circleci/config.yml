@@ -67,6 +67,6 @@ workflows:
                             - master
         jobs:
         - build
-        - deploy
+        - deploy:
             requires:
             - build
