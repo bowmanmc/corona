@@ -36,9 +36,6 @@ export default ({ data, fips, onClose }) => {
         <div className="County">
             <div className="County__header">
                 <h2>{county?.name} County, {county?.state}</h2>
-                <button className="County__closebtn" onClick={() => {
-                    onClose(fips);
-                }}>x close</button>
             </div>
 
             <CasesChart data={data} fips={fips} />
@@ -89,6 +86,11 @@ export default ({ data, fips, onClose }) => {
                 </div>
             </div>
 
+            <div className="County__footer">
+                <button className="County__closebtn" onClick={() => {
+                    onClose(fips);
+                }}>x close</button>
+            </div>
         </div>
     );
 };

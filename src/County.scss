@@ -30,13 +30,13 @@
     }
 
     &__header {
-        display: flex;
-        flex-direction: row;
         margin-bottom: 1.0em;
+    }
 
-        h2 {
-            flex: 1;
-        }
+    &__footer {
+        align-items: flex-end;
+        display: flex;
+        justify-content: flex-end;
     }
 
     &__masks {
