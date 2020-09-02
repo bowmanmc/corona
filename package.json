@@ -10,6 +10,8 @@
         "@testing-library/react": "^9.5.0",
         "@testing-library/user-event": "^7.2.1",
         "d3-dsv": "^2.0.0",
+        "d3-scale": "^3.2.2",
+        "d3-scale-chromatic": "^2.0.0",
         "moment": "^2.27.0",
         "node-fetch": "^2.6.0",
         "node-sass": "^4.14.1",

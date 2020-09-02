@@ -1,0 +1,11 @@
+@import '../sass/colors';
+
+.Bars {
+    &__bar {
+        fill: $color-highlight;
+    }
+
+    &__bar-max {
+        fill: $color-highlight-alt;
+    }
+}

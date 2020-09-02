@@ -5,7 +5,7 @@
 .About {
     @include fontsize($fontsize-small);
     font-weight: $fontweight-light;
-    margin: 2em 1em;
+    margin: 2em 1.5em;
 
 
     h2 {
@@ -22,7 +22,7 @@
     }
 
     a {
-        color: #9cf;
-        text-decoration: none;
+        color: $color-highlight-alt;
+        text-decoration: underline;
     }
 }

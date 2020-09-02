@@ -2,21 +2,9 @@
 @import './sass/devices';
 @import './sass/typography';
 
-/*
-<div class="react-select-container">
-  <div class="react-select__control">
-    <div class="react-select__value-container">...</div>
-    <div class="react-select__indicators">...</div>
-  </div>
-  <div class="react-select__menu">
-    <div class="react-select__menu-list">
-      <div class="react-select__option">...</div>
-    </div>
-  </div>
-</div>
-*/
+
 .AddButton {
-    background: rgba(255, 255, 255, 0.03);
+    background: $color-card;
     border-radius: 0.5em;
     display: flex;
     flex-direction: column;
@@ -37,8 +25,8 @@
 
     &__button {
         align-items: center;
-        background: #036;
-        border: 1px solid #036;
+        background: $color-highlight;
+        border: none;
         border-radius: 0.5em;
         color: #fff;
         cursor: pointer;
@@ -53,20 +41,38 @@
     }
 }
 
+/*
+<div class="react-select-container">
+  <div class="react-select__control">
+    <div class="react-select__value-container">...</div>
+    <div class="react-select__indicators">...</div>
+  </div>
+  <div class="react-select__menu">
+    <div class="react-select__menu-list">
+      <div class="react-select__option">...</div>
+    </div>
+  </div>
+</div>
+*/
 .Select {
-    color: #fff;
+    color: $color-text-primary;
 
     &__control {
-        background-color: #222 !important;
-        border-color: #ccc !important;
-        color: #ccc;
+        background-color: $color-card !important;
+        border-color: $color-text-alt !important;
+        color: $color-text-alt;
     }
 
     &__menu {
-        background-color: #222 !important;
+        background-color: $color-card-alt !important;
     }
 
     &__single-value {
-        color: #ccc !important;
+        color: $color-text-alt !important;
+    }
+
+    &__option--is-focused {
+        background-color: $color-highlight !important;
+        color: $color-text-primary !important;
     }
 }

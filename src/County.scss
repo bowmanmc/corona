@@ -4,7 +4,7 @@
 
 
 .County {
-    background: rgba(255, 255, 255, 0.03);
+    background: $color-card;
     border-radius: 0.5em;
     margin: 1em;
     padding: 1em;
@@ -13,7 +13,7 @@
         color: #ccc;
     }
 
-    .Chart {
+    .CasesChart {
         margin-bottom: 0.5em;
     }
 
@@ -41,7 +41,7 @@
 
     &__masks {
         align-items: center;
-        background: rgba(255, 255, 255, 0.03);
+        background: $color-card-alt;
         border-radius: 0.5em;
         display: flex;
         flex-direction: column;

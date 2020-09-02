@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import Card from './Card';
-import Chart from './Chart';
+import CasesChart from './chart/CasesChart';
 import MaskNumber from './MaskNumber';
 
 import './County.scss';
@@ -41,7 +41,7 @@ export default ({ data, fips, onClose }) => {
                 }}>x close</button>
             </div>
 
-            <Chart data={data} fips={fips} />
+            <CasesChart data={data} fips={fips} />
 
             <div className="County__row">
                 <Card

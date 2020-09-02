@@ -4,14 +4,14 @@
 
 
 .Card {
-    background: rgba(255, 255, 255, 0.03);
+    background: $color-card-alt;
     border-radius: 0.5em;
     padding: 1em;
 
     &__number {
         @include fontsize($fontsize-large);
 
-        color: #fff;
+        color: $color-text-primary;
         display: block;
         font-weight: $fontweight-bold;
     }
@@ -19,7 +19,7 @@
     &__context, &__description {
         @include fontsize($fontsize-small);
 
-        color: #aaa;
+        color: $color-text-alt;
         display: block;
         font-weight: $fontweight-light;
     }
