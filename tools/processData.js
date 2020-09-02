@@ -101,7 +101,7 @@ async function process() {
         // 7 day average
         let sevenTotal = 0;
         let sevenDeaths = 0;
-        for (let i = allDates.length - 8; i < allDates.length - 1; i++) {
+        for (let i = allDates.length - 7; i < allDates.length; i++) {
             sevenTotal += county.cases[i];
             sevenDeaths += county.deaths[i];
         }
@@ -111,7 +111,7 @@ async function process() {
         county.sevenDeaths = sevenDeaths;
 
         let prevSevenTotal = 0;
-        for (let i = allDates.length - 15; i < allDates.length - 8; i++) {
+        for (let i = allDates.length - 14; i < allDates.length - 7; i++) {
             prevSevenTotal += county.cases[i];
         }
         let prevSevenAvg = prevSevenTotal / 7.0;
@@ -119,14 +119,14 @@ async function process() {
 
         // 14 day average
         let fourteenTotal = 0;
-        for (let i = allDates.length - 15; i < allDates.length - 1; i++) {
+        for (let i = allDates.length - 14; i < allDates.length; i++) {
             fourteenTotal += county.cases[i];
         }
         let fourteenAvg = fourteenTotal / 14.0;
         county.fourteenDayAverage = fourteenAvg;
 
         let prevFourteenTotal = 0;
-        for (let i = allDates.length - 29; i < allDates.length - 15; i++) {
+        for (let i = allDates.length - 28; i < allDates.length - 14; i++) {
             prevFourteenTotal += county.cases[i];
         }
         let prevFourteenAvg = prevFourteenTotal / 14.0;
