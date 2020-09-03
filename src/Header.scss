@@ -1,0 +1,28 @@
+@import './sass/colors';
+@import './sass/typography';
+
+.Header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 0.5em;
+
+    span {
+        @include fontsize($fontsize-large);
+        color: $color-text-alt;
+        font-weight: $fontweight-light;
+        padding: 0 0.5em;
+    }
+
+    svg {
+        width: $fontsize-large;
+
+        .fa-primary {
+            fill: $color-highlight-alt;
+        }
+
+        .fa-secondary {
+            fill: $color-text-primary;
+        }
+    }
+}

@@ -4,6 +4,7 @@ import About from './About';
 import AddButton from './AddButton';
 import Constants from './Constants';
 import County from './County';
+import Header from './Header';
 
 import './App.scss';
 
@@ -58,6 +59,7 @@ function App() {
 
     return (
         <div className="App">
+            <Header />
             {fips.map(f => {
                 return <County key={f} data={data} fips={f} onClose={closeCounty} />;
             })}

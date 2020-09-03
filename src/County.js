@@ -76,7 +76,7 @@ export default ({ data, fips, onClose }) => {
             </div>
 
             <div className="County__masks">
-                <div className="County__maskstitle">Mask Usage</div>
+                <div className="County__maskstitle">Mask Usage Rate</div>
                 <div className="County__maskscounts">
                     <MaskNumber label={"Never"} rate={county?.maskusage.never} />
                     <MaskNumber label={"Rarely"} rate={county?.maskusage.rarely} />
