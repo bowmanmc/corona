@@ -3,6 +3,8 @@ import moment from 'moment';
 
 import Bars from './Bars';
 // import Events from './Events';
+import GridLines from './GridLines';
+import MeanLine from './MeanLine';
 import MonthSeparators from './MonthSeparators';
 
 import './CasesChart.scss';
@@ -36,12 +38,15 @@ export default ({ data, fips }) => {
         width: WIDTH,
         height: HEIGHT,
         max: data.counts[fips].maxCases,
+        average: data.counts[fips].averageDaily,
     };
 
     return (
         <div className="CasesChart">
             <svg className="CasesChart" viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
                 <MonthSeparators series={series} context={ctx} />
+                <GridLines context={ctx} />
+                {/* <MeanLine context={ctx} /> */}
                 <Bars series={series} context={ctx} />
                 {/* <Events series={series} context={ctx} /> */}
             </svg>

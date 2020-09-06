@@ -1,0 +1,15 @@
+@import '../sass/colors';
+
+.MeanLine {
+
+    line {
+        stroke: $color-text-alt;
+        stroke-width: 1;
+    }
+
+    text {
+        color: $color-text-alt;
+        fill: $color-text-alt;
+        font-size: 24px;
+    }
+}

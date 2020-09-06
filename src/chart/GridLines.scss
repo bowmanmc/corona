@@ -1,0 +1,15 @@
+@import '../sass/colors';
+
+.GridLines {
+
+    line {
+        stroke: $color-text-alt;
+        stroke-width: 1px;
+    }
+
+    text {
+        color: $color-text-alt;
+        fill: $color-text-alt;
+        font-size: 36px;
+    }
+}

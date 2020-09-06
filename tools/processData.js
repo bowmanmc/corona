@@ -60,6 +60,7 @@ async function process() {
         let maxCases = 0;
         let maxDeaths = 0;
 
+        let totalNonZero = 0;
         for (let j = 0; j < allDates.length; j++) {
             const day = allDates[j];
             const yesterday = moment(day, 'YYYYMMDD').subtract(1, 'day').format('YYYYMMDD');
@@ -81,6 +82,10 @@ async function process() {
                     newCases = cumulativeCases - countyData[yesterday].cases;
                 }
 
+                if (newCases > 0) {
+                    totalNonZero++;
+                }
+
                 county.deaths.push(newDeaths);
                 county.cases.push(newCases);
 
@@ -97,6 +102,7 @@ async function process() {
         county.totalCases = countyData[data.end].cases;
         county.maxCases = maxCases;
         county.maxDeaths = maxDeaths;
+        county.averageDaily = county.totalCases / totalNonZero;
 
         // 7 day average
         let sevenTotal = 0;
