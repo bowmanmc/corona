@@ -8,7 +8,7 @@ export default () => {
     return (
         <div className="Header">
             <VirusIcon />
-            <span>Coronavirus Tracker</span>
+            <span>Coronavirus Case Tracker</span>
             <VirusIcon />
         </div>
     );
