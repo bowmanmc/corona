@@ -60,9 +60,11 @@ function App() {
     return (
         <div className="App">
             <Header />
-            {fips.map(f => {
-                return <County key={f} data={data} fips={f} onClose={closeCounty} />;
-            })}
+            <div className="App__counties">
+                {fips.map(f => {
+                    return <County key={f} data={data} fips={f} onClose={closeCounty} />;
+                })}
+            </div>
             <AddButton data={data?.selectData} onAdd={addCounty} />
             <About />
         </div>

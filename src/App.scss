@@ -1,2 +1,8 @@
 .App {
+
+    &__counties {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

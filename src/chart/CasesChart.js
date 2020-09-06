@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import Bars from './Bars';
+// import Events from './Events';
 import MonthSeparators from './MonthSeparators';
 
 import './CasesChart.scss';
@@ -35,6 +36,7 @@ export default ({ data, fips }) => {
         <svg className="CasesChart" viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
             <MonthSeparators series={series} context={ctx} />
             <Bars series={series} context={ctx} />
+            {/* <Events series={series} context={ctx} /> */}
         </svg>
     )
 };
