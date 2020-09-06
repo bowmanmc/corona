@@ -40,6 +40,20 @@ function App() {
         fetchData();
     }, []);
 
+    const addNeighbors = (countyCodes) => {
+        if (!countyCodes || !countyCodes.length) {
+            return;
+        }
+
+        for (let i = 0; i < countyCodes.length; i++) {
+            if (fips.indexOf(countyCodes[i]) < 0) {
+                fips.push(countyCodes[i]);
+            }
+            setFips([...fips]);
+            localStorage.setItem(Constants.KEY_COUNTIES, JSON.stringify(fips));
+        }
+    }
+
     const addCounty = (countyCode) => {
         if (fips.indexOf(countyCode) < 0) {
             fips.push(countyCode);
@@ -62,7 +76,15 @@ function App() {
             <Header />
             <div className="App__counties">
                 {fips.map(f => {
-                    return <County key={f} data={data} fips={f} onClose={closeCounty} />;
+                    return (
+                        <County
+                            key={f}
+                            data={data}
+                            fips={f}
+                            onAddNeighbors={addNeighbors}
+                            onClose={closeCounty}
+                        />
+                    );
                 })}
             </div>
             <AddButton data={data?.selectData} onAdd={addCounty} />

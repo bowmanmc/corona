@@ -7,7 +7,7 @@ import MaskNumber from './MaskNumber';
 
 import './County.scss';
 
-export default ({ data, fips, onClose }) => {
+export default ({ data, fips, onAddNeighbors, onClose }) => {
 
     const county = data?.counties?.[fips];
     const counts = data?.counts?.[fips];
@@ -30,6 +30,12 @@ export default ({ data, fips, onClose }) => {
     }
     else {
         fourteenContext = `Down from ${fourteenContext}`;
+    }
+
+    const adjacentCounties = [];
+    for (let i = 0; i < county?.adjacent.length; i++) {
+        const afips = county?.adjacent[i];
+        adjacentCounties.push(data?.counties?.[afips].name);
     }
 
     return (
@@ -87,9 +93,20 @@ export default ({ data, fips, onClose }) => {
             </div>
 
             <div className="County__footer">
-                <button className="County__closebtn" onClick={() => {
-                    onClose(fips);
-                }}>x close</button>
+                <div className="County__footerleft">
+                    <button className="County__footerbtn" onClick={() => {
+                        onAddNeighbors(county?.adjacent);
+                    }}>
+                        Add Neighbor Counties
+                        <br />
+                        ({adjacentCounties.join(', ')})
+                    </button>
+                </div>
+                <div className="County__footerright">
+                    <button className="County__footerbtn" onClick={() => {
+                        onClose(fips);
+                    }}>x close</button>
+                </div>
             </div>
         </div>
     );
