@@ -3,6 +3,41 @@
 @import '../sass/typography';
 
 .CasesChart {
-    height: auto;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+
+    &__legend {
+        color: $color-text-alt;
+        display: flex;
+        font-size: $fontsize-xs;
+        font-weight: $fontweight-light;
+        margin: 0;
+    }
+
+    &__chartlabel {
+        flex: 1;
+    }
+
+    &__maxlabel {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 1.0em;
+    }
+
+    &__maxcolor {
+        background: $color-highlight-alt;
+        height: 10px;
+        margin-right: 0.25em;
+        width: 10px;
+    }
+
+    svg {
+        height: auto;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
 }

@@ -14,10 +14,6 @@
         color: #ccc;
     }
 
-    .CasesChart {
-        margin-bottom: 0.5em;
-    }
-
     &__header {
         margin-bottom: 1.0em;
     }
@@ -29,6 +25,7 @@
 
     &__footerleft {
         flex: 1;
+        padding-right: 1.0em;
     }
 
     &__footerbtn {
