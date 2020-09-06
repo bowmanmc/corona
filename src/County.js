@@ -59,12 +59,12 @@ export default ({ data, fips, onAddNeighbors, onClose }) => {
 
             <div className="County__row">
                 <Card
-                    description={"7-Day Avg Daily New Cases"}
+                    description={"7-Day Average Daily New Cases"}
                     context={sevenContext}
                     number={`${counts?.sevenDayAverage?.toFixed(1)} New Cases / Day`}
                 />
                 <Card
-                    description={"14-Day Avg Daily New Cases"}
+                    description={"14-Day Average Daily New Cases"}
                     context={fourteenContext}
                     number={`${counts?.fourteenDayAverage?.toFixed(1)} New Cases / Day`}
                 />
