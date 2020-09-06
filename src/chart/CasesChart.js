@@ -4,7 +4,7 @@ import moment from 'moment';
 import Bars from './Bars';
 // import Events from './Events';
 import GridLines from './GridLines';
-import MeanLine from './MeanLine';
+// import MeanLine from './MeanLine';
 import MonthSeparators from './MonthSeparators';
 
 import './CasesChart.scss';

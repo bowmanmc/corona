@@ -27,13 +27,13 @@ export default ({ context }) => {
                 return (
                     <>
                         <line
-                            x1={0}
+                            x1={17}
                             x2={context.width}
                             y1={yScale(val) + MARGIN_TOP}
                             y2={yScale(val) + MARGIN_TOP}
                         />
                         <text
-                            x={7}
+                            x={17}
                             y={yScale(val) + MARGIN_TOP - 7}>
                             {val.toLocaleString()} New Cases
                         </text>

@@ -3,13 +3,12 @@
 .GridLines {
 
     line {
-        stroke: $color-text-alt;
-        stroke-width: 1px;
+        stroke: rgba(255, 255, 255, 0.15);
+        stroke-width: 3px;
     }
 
     text {
-        color: $color-text-alt;
-        fill: $color-text-alt;
+        fill: rgba(255, 255, 255, 0.35);
         font-size: 36px;
     }
 }
