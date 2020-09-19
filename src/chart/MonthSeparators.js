@@ -48,8 +48,8 @@ export default ({ series, context }) => {
                             width={separator.width}
                         />
                         <text
-                            x={separator.x + 3}
-                            y={42}>{separator.month}
+                            x={separator.x + 7}
+                            y={34}>{separator.month}
                         </text>
                     </g>
                 );
