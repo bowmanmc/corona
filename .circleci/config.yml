@@ -7,7 +7,7 @@ jobs:
     build:
         <<: *defaults
         docker:
-        - image: circleci/node:latest
+        - image: cimg/node:15.0
         steps:
         - checkout
         - restore_cache:
