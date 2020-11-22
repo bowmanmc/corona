@@ -81,7 +81,7 @@ export default ({ data, fips, onAddNeighbors, onClose }) => {
                 />
             </div>
 
-            <div className="County__masks">
+            {/* <div className="County__masks">
                 <div className="County__maskstitle">Mask Usage Rate</div>
                 <div className="County__maskscounts">
                     <MaskNumber label={"Never"} rate={county?.maskusage.never} />
@@ -90,7 +90,7 @@ export default ({ data, fips, onAddNeighbors, onClose }) => {
                     <MaskNumber label={"Frequently"} rate={county?.maskusage.frequently} />
                     <MaskNumber label={"Always"} rate={county?.maskusage.always} />
                 </div>
-            </div>
+            </div> */}
 
             <div className="County__footer">
                 <div className="County__footerleft">
