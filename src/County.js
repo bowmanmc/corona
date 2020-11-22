@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import Card from './Card';
 import CasesChart from './chart/CasesChart';
-import MaskNumber from './MaskNumber';
+// import MaskNumber from './MaskNumber';
 
 import './County.scss';
 
